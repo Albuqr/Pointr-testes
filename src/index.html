@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pointr Studio - Wireframe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand"><strong>Pointr Studio</strong> <span class="tag">wireframe</span></div>
+    <nav>
+      <button class="active" data-tab="gravar">1. Gravar</button>
+      <button data-tab="camera">2. Câmeras</button>
+      <button data-tab="calibracao">3. Calibração</button>
+      <button data-tab="sessoes">4. Sessões</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="gravar" class="tab active">
+      <h1>Gravar</h1>
+      <p class="muted">Status: <strong id="status">Não gravando</strong></p>
+      <div class="row">
+        <button id="btn-iniciar" class="Primary">Iniciar grupo</button>
+        <button id="btn-parar">Parar grupo</button>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-head"><strong>Cmera 1</strong> <span class="tag">RODANDO</span></div>
+          <div class="placeholder">prévia da câmera 1</div>
+          <div class="metrics">
+            <div><b>5.2</b><small>FPS</small></div>
+            <div><b>1</b><small>PESSOAS</small></div>
+            <div><b>1</b><small>TRILHAS</small></div>
+            <div><b>40</b><small>PERDAS</small></div>
+          </div>
+          <p class="muted small">Sem calibração · posições em pixels</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><strong>Câmera 2</strong> <span class="tag">RODANDO</span>
+          <div class="placeholder">prévia da câmera 2</div>
+          <div class="metrics">
+            <div><b>4.5</b><small>FPS</small></div>
+            <div><b>0</b><small>PESSOAS</small></div>
+            <div><b>0</b><small>TRILHAS</small></div>
+            <div><b>12</b><small>PERDAS</small></div>
+          </div>
+          <p class="small" style="color:red; font-size:11px">Sem calibração · posições em pixels</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cameras" class="tab">
+      <h1>Câmeras</h1>
+
+      <form class="card" onsubmit="return false;">
+        <h2>Adicionar câmera</h2>
+        <label>ID da câmera <input type="text" placeholder="cam1"></label>
+        <label>Nome <input type="text" placeholder="Câmera 1"></label>
+        <label>Tipo de conexão
+          <select>
+            <option>Webcam do notebook</option>
+            <option>Câmera USB</option>
+            <option>Celular por Wi-Fi</option>
+            <option>Arquivo de vídeo</option>
+          </select>
+        </label>
+        <label>Origem <input type="text" placeholder="http://192.168.0.10:4747/video"></label>
+        <label class="inline"><input type="checkbox" checked> Ativa para gravação</label>
+        <button class="primary">Adicionar câmera</button>
+      </form>
+
+      <h2>Suas câmeras</h3>
+      <input type="text" placeholder="Buscar câmera">
+      <table>
+        <thead><tr><th>ID</th><th>Nome</th><th>Conexão</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr><td>cam1</td><td>Câmera 1</td><td>Wi-Fi</td>
+              <td><button>Testar</button> <button>Editar</button> <button></button></td></tr>
+          <tr><td>cam2</td><td>Câmera 2</td><td>Wi-Fi</td>
+              <td><button>Testar</button> <button>Editar</button> <button>Remover</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="calibracao" class="tab">
+      <h1>Calibraçao</h1>
+      <div class="row">
+        <label>Câmera
+          <select><option>Câmera 1</option><option>Câmera 2</option></select>
+        </label>
+        <label>Quadra
+          <select><option>Quadra inteira</option><option>Meia quadra</option><option>Personalizada</option></select>
+        </label>
+        <label>Comprimento (m) <input type="number" value="-28"></label>
+        <label>Largura (m) <input type="number" value="15"></label>
+        <button class="primary">Capturar quadro</button>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Imagem da câmera</h2>
+          <div class="placeholder tall">clique nos pontos da quadra (1, 2, 3, 4...)</div>
+        </div>
+        <div class="card">
+          <h2>Pontos marcados</h2>
+          <table>
+            <thead><tr><th>#</th><th>Pixel (x, y)</th><th>Metros (x, y)</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>120, 540</td><td>0.0, 0.0</td></tr>
+              <tr><td>2</td><td>980, 560</td><td>28.0, 0.0</td></tr>
+              <tr><td>3</td><td>900, 120</td><td>28.0, 15.0</td></tr>
+              <tr><td>4</td><td>200, 110</td><td>0.0, 15.0</td></tr>
+            </tbody>
+          </table>
+          <p class="muted">Erro de checagem: <strong>0,75 m</strong> (limite 0,5 m)</p>
+          <button class="primary">Salvar calibração</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="sessoes" class="tab">
+      <h1>Sessões gravadas</h1>
+      <table>
+        <thead><tr><th>Sessão</th><th>Câmera</th><th>Início</th><th>Duração</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>a5ebd582</td><td>cam2</td><td>20/10 20:20</td><td>141 s</td><td id="status">encerrada</td><td><button>Ver relatório</button></td></tr>
+          <tr><td>92d46ca2</td><td>cam1</td><td>20/10 20:19</td><td>200 s</td><td>encerrada</td></tr>
+        </tbody>
+      </table>
+
+      <div class="card">
+        <h2>Relatório (exemplo)</h2>
+        <div class="metrics">
+          <div><b>823</b><small>QUADROS PROCESSADOS</small></div>
+          <div><b>50</b><small>TRILHAS</small></div>
+          <div><b>48%</b><small>COM DETECÇÃO</small></div>
+          <div><b>4.1</b><small>FPS MÉDIO</small></div>
+        </div>
+        <div class="placeholder">gráfico de movimento</div>
+        <a href="C:/Users/joao/relatorio.pdf">Baixar PDF</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
