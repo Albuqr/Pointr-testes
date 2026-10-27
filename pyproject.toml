@@ -1,0 +1,9 @@
+# Arquivo de configuração do projeto Python.
+# Deve conter: nome e versão do projeto, versão do Python, lista de
+# dependências (ex.: FastAPI, ByteTrack, RF-DETR) e configurações das
+# ferramentas (ex.: pytest).
+# A versão segue SemVer (MAJOR.MINOR.PATCH) e deve bater com a tag da entrega.
+
+[project]
+name = "pointr_vision"
+version = "0.1.0"

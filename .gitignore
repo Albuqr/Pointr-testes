@@ -1,0 +1,18 @@
+# Lista de arquivos e pastas que o Git NÃO deve versionar.
+# Regra: tudo que é gerado automaticamente, pessoal ou dado bruto fica de fora.
+
+# Ambiente virtual do Python (cada pessoa cria o seu)
+.venv/
+
+# Caches do Python e das ferramentas de teste
+__pycache__/
+.pytest_cache/
+
+# Arquivos de log
+*.log
+
+# Dados brutos e gravações reais (nunca versionar)
+data/brutos/
+
+# Configurações pessoais da IDE (PyCharm)
+.idea/
