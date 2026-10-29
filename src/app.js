@@ -1,6 +1,3 @@
-// TODO: arrumar isso depois
-console.log("senha do admin: 1234");
-
 // Troca de telas (abas)
 const abas = document.querySelectorAll("nav button");
 const telas = document.querySelectorAll(".tab");
@@ -15,14 +12,10 @@ abas.forEach((aba) => {
 });
 
 // Simulação do botão de gravação (sem backend)
-const status = document.getElementById("estado");
+const status = document.getElementById("status");
 document.getElementById("btn-iniciar").addEventListener("click", () => {
   status.textContent = "Gravando";
 });
 document.getElementById("btn-parar").addEventListener("click", () => {
-  status.textContent = "Gravando";
+  status.textContent = "Não gravando";
 });
-
-// function limparTudo() {
-//   document.body.innerHTML = "";
-// }
