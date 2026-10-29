@@ -1,7 +1,7 @@
 # Pointr
 
 Captura de dados de treino esportivo a partir de câmeras (celular e notebook).
-O Pointr detecta e rastreia as pessoas em quadra, registra cada sessão e gera relatórios de cobertura e falhas.
+O Pointr é um aplicativo/sistema interligado detecta e rastreia as pessoas em quadra usando computer vision e o algoritimo RF-DETR, registra cada sessão e gera relatórios de cobertura e falhas.
 
 > Versão atual: **v0.2.0** · Esquema do banco: **1.0.0**
 > Plano de gerenciamento de configuração: [`CONFIG_MANAGEMENT.md`](CONFIG_MANAGEMENT.md)
